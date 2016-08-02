@@ -48,10 +48,10 @@
         for (var i = 0; i < midi.inputs.length; i++) {
             listInput.appendChild(new Option(midi.inputs[i]["name"], i));
 
-            var input = midi.inputs[i];
-            $("#debug").append("[type:'" + input.type + "'] id:'" + input.id +
-                "' manufacturer:'" + input.manufacturer + "' name:'" + input.name +
-                "' version:'" + input.version + "'" + " Virtual:'" + input.virtual + "'" + "<br />");
+            //var input = midi.inputs[i];
+            //$("#debug").append("[type:'" + input.type + "'] id:'" + input.id +
+            //    "' manufacturer:'" + input.manufacturer + "' name:'" + input.name +
+            //    "' version:'" + input.version + "'" + " Virtual:'" + input.virtual + "'" + "<br />");
         }
 
         // When the input device is changed
@@ -88,10 +88,10 @@
         for (var i = 0; i < midi.outputs.length; i++) {
             listOutput.appendChild(new Option(midi.outputs[i]["name"], i));
 
-            var output = midi.outputs[i];
-            $("#debug").append("[type:'" + output.type + "'] id:'" + output.id +
-                "' manufacturer:'" + output.manufacturer + "' name:'" + output.name +
-                "' version:'" + output.version + "'" + " Virtual:'" + output.virtual + "'" + "<br />");
+            //var output = midi.outputs[i];
+            //$("#debug").append("[type:'" + output.type + "'] id:'" + output.id +
+            //    "' manufacturer:'" + output.manufacturer + "' name:'" + output.name +
+            //    "' version:'" + output.version + "'" + " Virtual:'" + output.virtual + "'" + "<br />");
         }
 
         // When the MIDI output devices is changed
