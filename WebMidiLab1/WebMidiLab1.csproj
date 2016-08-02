@@ -204,6 +204,7 @@
     <Content Include="bower_components\x-webmidi\LICENSE" />
     <Content Include="bower_components\x-webmidi\README.md" />
     <None Include="Properties\PublishProfiles\webmidilab1 - Web Deploy.pubxml" />
+    <Content Include="README.md" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
