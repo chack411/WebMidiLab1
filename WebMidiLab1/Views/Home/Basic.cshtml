@@ -139,7 +139,7 @@
         }
 
         $("#play").click(function () {
-            $("#debug").append("play clicked... <br />");
+            //$("#debug").append("play clicked... <br />");
 
             var interval = 0.0;
             midi.outputs[midiOutputIndex].send([0x90, 0x3c, 0x7f], interval); // C (ド)
