@@ -193,26 +193,26 @@
 
                 $('#play').click(function () {
                     // Call the Send method on the hub.
-                    webMidi.server.webMIDIOutput(0x90, 0x40, 0x7f); // E (ミ)
-                    webMidi.server.webMIDIOutput(0x90, 0x43, 0x7f); // G (ソ)
-                    webMidi.server.webMIDIOutput(0x90, 0x48, 0x7f); // C (ド)
+                    webMidi.server.webMIDIOutput(0x90, 0x40, 0x40); // E (ミ)
+                    webMidi.server.webMIDIOutput(0x90, 0x43, 0x40); // G (ソ)
+                    webMidi.server.webMIDIOutput(0x90, 0x48, 0x40); // C (ド)
                 });
 
                 $('#play2').click(function () {
                     // Call the Send method on the hub.
-                    webMidi.server.webMIDIOutput(0x90, 0x3e, 0x7f); // D (レ)
-                    webMidi.server.webMIDIOutput(0x90, 0x43, 0x7f); // G (ソ)
-                    webMidi.server.webMIDIOutput(0x90, 0x47, 0x7f); // B (シ)
+                    webMidi.server.webMIDIOutput(0x90, 0x3e, 0x40); // D (レ)
+                    webMidi.server.webMIDIOutput(0x90, 0x43, 0x40); // G (ソ)
+                    webMidi.server.webMIDIOutput(0x90, 0x47, 0x40); // B (シ)
                 });
 
                 $('#stop').click(function () {
                     // Call the Send method on the hub.
-                    webMidi.server.webMIDIOutput(0x80, 0x40, 0x00); // E (ミ)
-                    webMidi.server.webMIDIOutput(0x80, 0x43, 0x00); // G (ソ)
-                    webMidi.server.webMIDIOutput(0x80, 0x48, 0x00); // C (ド)
-                    webMidi.server.webMIDIOutput(0x80, 0x3e, 0x00); // D (レ)
-                    webMidi.server.webMIDIOutput(0x80, 0x43, 0x00); // G (ソ)
-                    webMidi.server.webMIDIOutput(0x80, 0x47, 0x00); // B (シ)
+                    webMidi.server.webMIDIOutput(0x80, 0x40, 0x40); // E (ミ)
+                    webMidi.server.webMIDIOutput(0x80, 0x43, 0x40); // G (ソ)
+                    webMidi.server.webMIDIOutput(0x80, 0x48, 0x40); // C (ド)
+                    webMidi.server.webMIDIOutput(0x80, 0x3e, 0x40); // D (レ)
+                    webMidi.server.webMIDIOutput(0x80, 0x43, 0x40); // G (ソ)
+                    webMidi.server.webMIDIOutput(0x80, 0x47, 0x40); // B (シ)
                 });
 
                 $.connection.hub.start().done();
