@@ -236,9 +236,11 @@
     <Content Include="Views\Home\Basic.cshtml" />
     <Content Include="Views\Home\Sync.cshtml" />
     <Content Include="Views\Home\SyncAdmin.cshtml" />
+    <Content Include="Views\Home\PlaySMF.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\mid\" />
     <Folder Include="Content\Styles\" />
     <Folder Include="Models\" />
   </ItemGroup>

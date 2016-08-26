@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Play SMF";
+}
+
+<script src="~/bower_components/webcomponentsjs/webcomponents.js"></script>
+<link rel="import" href="~/bower_components/polymer/polymer.html">
+<link rel="import" href="~/bower_components/x-webmidi/extras/wm-webmidilink/wm-webmidilink.html">
+<link rel="import" href="~/bower_components/x-webmidi/extras/wm-smfplayer/wm-smfplayer.html">
+
+<h2>Web MIDI API Demo - Play Standard MIDI File (.mid)</h2>
+
+<wm-webmidilink id="wmlink"></wm-webmidilink>
+<wm-smfplayer id="smfplayer" midifile="~/Content/mid/SUZANNA.mid" latency="1200"></wm-smfplayer>
+
+<div style="margin-top: 20px; font-size: 1.2em">
+    MIDI Output: <select id="midi-output"><option>Select ...</option></select><span id="virtual-output"></span><br /><br />
+</div>
+
+<input type="button" id="play" value="Play" />
+<input type="button" id="stop" value="Stop" />
+
+@section scripts{
+    <script type="text/javascript">
+    var midi = { "inputs": [], "outputs": [] };
+    var midiOutputIndex = 0;
+
+    // returns a Promise object representing a request for access to MIDI devices on the user's system.
+    // Promise<MIDIAccess> requestMIDIAccess (optional MIDIOptions options);
+    navigator.requestMIDIAccess({ sysex: false }).then(onMIDISuccess, onMIDIFailure);
+
+    function onMIDISuccess(/*MIDIAccess*/ midiAccess) {
+
+        // List MIDI Output devices
+        var it = midiAccess.outputs.values();
+        for (var output = it.next(); !output.done; output = it.next()) {
+            midi.outputs.push(output.value);
+        }
+        // Add a virtual MIDI Output device
+        midi.outputs.push((document.querySelector("#wmlink")).getOutput());
+
+        // Show MIDI output devices
+        var listOutput = document.querySelector("#midi-output");
+        for (var i = 0; i < midi.outputs.length; i++) {
+            listOutput.appendChild(new Option(midi.outputs[i]["name"], i));
+        }
+
+        // When the MIDI output devices is changed
+        listOutput.addEventListener("change", function (event) {
+
+            if (parseInt(event.target.value) >= 0) {
+                midiOutputIndex = event.target.value;
+
+                // When the vertual MIDI output device is selected
+                if (midi.outputs[midiOutputIndex].virtual == true) {
+                    document.querySelector("#virtual-output").appendChild(document.querySelector("#wmlink").getElement());
+                } else {
+                    document.querySelector("#virtual-output").innerHTML = ""
+                }
+            }
+
+        });
+
+        $("#play").click(function () {
+            if (parseInt(midiOutputIndex) >= 0) {
+                document.querySelector("#smfplayer").startPlay(midi.outputs[midiOutputIndex]);
+            }
+        });
+
+        $("#stop").click(function () {
+            if (parseInt(midiOutputIndex) >= 0) {
+                document.querySelector("#smfplayer").stopPlay();
+            }
+        });
+    }
+
+    function onMIDIFailure(msg) {
+        alert("[ERROR] " + msg);
+    }
+
+    </script>
+}
+
+

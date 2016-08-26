@@ -37,6 +37,11 @@ namespace WebMidiLab1.Controllers
             return View();
         }
 
+        public ActionResult PlaySMF()
+        {
+            return View();
+        }
+
         public ActionResult SyncAdmin()
         {
             return View();
